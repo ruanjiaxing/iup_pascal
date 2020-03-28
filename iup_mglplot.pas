@@ -1,5 +1,8 @@
 
 unit iup_mglplot;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -33,11 +36,6 @@ interface
 {$IFDEF FPC}
 {$PACKRECORDS C}
 {$ENDIF}
-
-
-
-{$ifndef __IUP_MGLPLOT_H }
-{$define __IUP_MGLPLOT_H}  
 
 
   procedure IupMglPlotOpen;cdecl;external External_library name 'IupMglPlotOpen';
@@ -114,7 +112,6 @@ interface
 
   function IupMglLabel(title:Pchar):PIhandle;cdecl;external External_library name 'IupMglLabel';
 
-{$endif}
 
 implementation
 

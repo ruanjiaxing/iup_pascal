@@ -1,6 +1,11 @@
 
 unit iup_varg;
+
+{$mode objfpc}
+
 interface
+
+uses iup;
 
 {
   Automatically converted by H2Pas 1.0.0 from iup_varg.h
@@ -33,12 +38,6 @@ interface
 {$ENDIF}
 
 
-
-{$ifndef __IUP_VARG_H }
-{$define __IUP_VARG_H}  
-{$include <stdarg.h>}
-{$include "iup.h"}
-
   procedure IupLogV(_type:Pchar; format:Pchar; arglist:va_list);cdecl;external External_library name 'IupLogV';
 
   function IupSetAttV(handle_name:Pchar; ih:PIhandle; name:Pchar; arglist:va_list):PIhandle;cdecl;external External_library name 'IupSetAttV';
@@ -47,7 +46,7 @@ interface
 
   procedure IupSetStrfIdV(ih:PIhandle; name:Pchar; id:longint; format:Pchar; arglist:va_list);cdecl;external External_library name 'IupSetStrfIdV';
 
-  procedure IupSetStrfId2V(ih:PIhandle; name:Pchar; lin:longint; col:longint; format:Pchar; 
+  procedure IupSetStrfId2V(ih:PIhandle; name:Pchar; lin:longint; col:longint; format:Pchar;
               arglist:va_list);cdecl;external External_library name 'IupSetStrfId2V';
 
   function IupSetCallbacksV(ih:PIhandle; name:Pchar; func:Icallback; arglist:va_list):PIhandle;cdecl;external External_library name 'IupSetCallbacksV';
@@ -82,7 +81,6 @@ interface
 
   function IupGLCanvasBoxV(child:PIhandle; arglist:va_list):PIhandle;cdecl;external External_library name 'IupGLCanvasBoxV';
 
-{$endif}
 
 implementation
 

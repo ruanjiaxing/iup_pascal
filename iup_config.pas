@@ -1,5 +1,8 @@
 
 unit iup_config;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -32,10 +35,6 @@ interface
 {$PACKRECORDS C}
 {$ENDIF}
 
-
-
-{$ifndef IUP_CONFIG_H}
-{$define IUP_CONFIG_H}  
 
   function IupConfig:PIhandle;cdecl;external External_library name 'IupConfig';
 
@@ -93,7 +92,6 @@ interface
 
   procedure IupConfigDialogClosed(ih:PIhandle; dialog:PIhandle; name:Pchar);cdecl;external External_library name 'IupConfigDialogClosed';
 
-{$endif}
 
 implementation
 

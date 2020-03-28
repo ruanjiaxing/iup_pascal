@@ -1,5 +1,8 @@
 
 unit iupcontrols;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -33,10 +36,6 @@ interface
 {$ENDIF}
 
 
-
-{$ifndef __IUPCONTROLS_H }
-{$define __IUPCONTROLS_H}  
-
   function IupControlsOpen:longint;cdecl;external External_library name 'IupControlsOpen';
 
   function IupCells:PIhandle;cdecl;external External_library name 'IupCells';
@@ -52,7 +51,6 @@ interface
 
   procedure IupMatrixSetDynamic(ih:PIhandle; init:Pchar);cdecl;external External_library name 'IupMatrixSetDynamic';
 
-{$endif}
 
 implementation
 

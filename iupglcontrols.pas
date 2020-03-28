@@ -1,5 +1,8 @@
 
 unit iupglcontrols;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -33,10 +36,6 @@ interface
 {$PACKRECORDS C}
 {$ENDIF}
 
-
-
-{$ifndef __IUPGLCONTROLS_H }
-{$define __IUPGLCONTROLS_H}  
 
   function IupGLControlsOpen:longint;cdecl;external External_library name 'IupGLControlsOpen';
 
@@ -81,7 +80,6 @@ interface
 
   procedure IupGLDrawGetImageInfo(name:Pchar; w:Plongint; h:Plongint; bpp:Plongint);cdecl;external External_library name 'IupGLDrawGetImageInfo';
 
-{$endif}
 
 implementation
 

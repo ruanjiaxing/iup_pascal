@@ -1,5 +1,8 @@
 
 unit iupcbs;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -32,10 +35,6 @@ interface
 {$PACKRECORDS C}
 {$ENDIF}
 
-
-
-{$ifndef __IUPCBS_H }
-{$define __IUPCBS_H}  
 
   type
     P_cdCanvas = ^_cdCanvas;
@@ -216,7 +215,6 @@ interface
 
     IFniid = function (_para1:PIhandle; _para2:longint; _para3:longint; _para4:double):longint;cdecl;
 
-{$endif}
 
 implementation
 

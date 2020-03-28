@@ -1,5 +1,8 @@
 
 unit iupdef;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -22,14 +25,6 @@ interface
 {$IFDEF FPC}
 {$PACKRECORDS C}
 {$ENDIF}
-
-
-
-{$ifndef __IUPDEF_H }
-{$define __IUPDEF_H}  
-
-
-
 
   const
     IUP_RUN = 'RUN';    
@@ -246,65 +241,64 @@ interface
     IUP_K_equal = 'K_equal';    
     IUP_K_greater = 'K_greater';    
     IUP_K_question = 'K_question';    
-    IUP_K_at = 'K_at';    
-    IUP_K_A = 'K_A';    
-    IUP_K_B = 'K_B';    
-    IUP_K_C = 'K_C';    
-    IUP_K_D = 'K_D';    
-    IUP_K_E = 'K_E';    
-    IUP_K_F = 'K_F';    
-    IUP_K_G = 'K_G';    
-    IUP_K_H = 'K_H';    
-    IUP_K_I = 'K_I';    
-    IUP_K_J = 'K_J';    
-    IUP_K_K = 'K_K';    
-    IUP_K_L = 'K_L';    
-    IUP_K_M = 'K_M';    
-    IUP_K_N = 'K_N';    
-    IUP_K_O = 'K_O';    
-    IUP_K_P = 'K_P';    
-    IUP_K_Q = 'K_Q';    
-    IUP_K_R = 'K_R';    
-    IUP_K_S = 'K_S';    
-    IUP_K_T = 'K_T';    
-    IUP_K_U = 'K_U';    
-    IUP_K_V = 'K_V';    
-    IUP_K_W = 'K_W';    
-    IUP_K_X = 'K_X';    
-    IUP_K_Y = 'K_Y';    
-    IUP_K_Z = 'K_Z';    
+      K_ucA           =  'A' ; //  65 (0x41)    !! added "uc" to elimiate duplicate
+      K_ucB           =  'B' ; //  66           !! added "uc" to elimiate duplicate
+      K_ucC           =  'C' ; //  67           !! added "uc" to elimiate duplicate
+      K_ucD           =  'D' ; //  68           !! added "uc" to elimiate duplicate
+      K_ucE           =  'E' ; //  69           !! added "uc" to elimiate duplicate
+      K_ucF           =  'F' ; //  70           !! added "uc" to elimiate duplicate
+      K_ucG           =  'G' ; //  71           !! added "uc" to elimiate duplicate
+      K_ucH           =  'H' ; //  72           !! added "uc" to elimiate duplicate
+      K_ucI           =  'I' ; //  73           !! added "uc" to elimiate duplicate
+      K_ucJ           =  'J' ; //  74           !! added "uc" to elimiate duplicate
+      K_ucK           =  'K' ; //  75           !! added "uc" to elimiate duplicate
+      K_ucL           =  'L' ; //  76           !! added "uc" to elimiate duplicate
+      K_ucM           =  'M' ; //  77           !! added "uc" to elimiate duplicate
+      K_ucN           =  'N' ; //  78           !! added "uc" to elimiate duplicate
+      K_ucO           =  'O' ; //  79           !! added "uc" to elimiate duplicate
+      K_ucP           =  'P' ; //  80           !! added "uc" to elimiate duplicate
+      K_ucQ           =  'Q' ; //  81           !! added "uc" to elimiate duplicate
+      K_ucR           =  'R' ; //  82           !! added "uc" to elimiate duplicate
+      K_ucS           =  'S' ; //  83           !! added "uc" to elimiate duplicate
+      K_ucT           =  'T' ; //  84           !! added "uc" to elimiate duplicate
+      K_ucU           =  'U' ; //  85           !! added "uc" to elimiate duplicate
+      K_ucV           =  'V' ; //  86           !! added "uc" to elimiate duplicate
+      K_ucW           =  'W' ; //  87           !! added "uc" to elimiate duplicate
+      K_ucX           =  'X' ; //  88           !! added "uc" to elimiate duplicate
+      K_ucY           =  'Y' ; //  89           !! added "uc" to elimiate duplicate
+      K_ucZ           =  'Z' ; //  90           !! added "uc" to elimiate duplicate   
     IUP_K_bracketleft = 'K_bracketleft';    
     IUP_K_backslash = 'K_backslash';    
     IUP_K_bracketright = 'K_bracketright';    
     IUP_K_circum = 'K_circum';    
     IUP_K_underscore = 'K_underscore';    
     IUP_K_quoteleft = 'K_quoteleft';    
-    IUP_K_a = 'K_a';    
-    IUP_K_b = 'K_b';    
-    IUP_K_c = 'K_c';    
-    IUP_K_d = 'K_d';    
-    IUP_K_e = 'K_e';    
-    IUP_K_f = 'K_f';    
-    IUP_K_g = 'K_g';    
-    IUP_K_h = 'K_h';    
-    IUP_K_i = 'K_i';    
-    IUP_K_j = 'K_j';    
-    IUP_K_k = 'K_k';    
-    IUP_K_l = 'K_l';    
-    IUP_K_m = 'K_m';    
-    IUP_K_n = 'K_n';    
-    IUP_K_o = 'K_o';    
-    IUP_K_p = 'K_p';    
-    IUP_K_q = 'K_q';    
-    IUP_K_r = 'K_r';    
-    IUP_K_s = 'K_s';    
-    IUP_K_t = 'K_t';    
-    IUP_K_u = 'K_u';    
-    IUP_K_v = 'K_v';    
-    IUP_K_w = 'K_w';    
-    IUP_K_x = 'K_x';    
-    IUP_K_y = 'K_y';    
-    IUP_K_z = 'K_z';    
+      K_lca           =  'a' ; //  97 (0x61)    !! added "lc" to elimiate duplicate
+      K_lcb           =  'b' ; //  98           !! added "lc" to elimiate duplicate
+      K_lcc           =  'c' ; //  99           !! added "lc" to elimiate duplicate
+      K_lcd           =  'd' ; // 100           !! added "lc" to elimiate duplicate
+      K_lce           =  'e' ; // 101           !! added "lc" to elimiate duplicate
+      K_lcf           =  'f' ; // 102           !! added "lc" to elimiate duplicate
+      K_lcg           =  'g' ; // 103           !! added "lc" to elimiate duplicate
+      K_lch           =  'h' ; // 104           !! added "lc" to elimiate duplicate
+      K_lci           =  'i' ; // 105           !! added "lc" to elimiate duplicate
+      K_lcj           =  'j' ; // 106           !! added "lc" to elimiate duplicate
+      K_lck           =  'k' ; // 107           !! added "lc" to elimiate duplicate
+      K_lcl           =  'l' ; // 108           !! added "lc" to elimiate duplicate
+      K_lcm           =  'm' ; // 109           !! added "lc" to elimiate duplicate
+      K_lcn           =  'n' ; // 110           !! added "lc" to elimiate duplicate
+      K_lco           =  'o' ; // 111           !! added "lc" to elimiate duplicate
+      K_lcp           =  'p' ; // 112           !! added "lc" to elimiate duplicate
+      K_lcq           =  'q' ; // 113           !! added "lc" to elimiate duplicate
+      K_lcr           =  'r' ; // 114           !! added "lc" to elimiate duplicate
+      K_lcs           =  's' ; // 115           !! added "lc" to elimiate duplicate
+      K_lct           =  't' ; // 116           !! added "lc" to elimiate duplicate
+      K_lcu           =  'u' ; // 117           !! added "lc" to elimiate duplicate
+      K_lcv           =  'v' ; // 118           !! added "lc" to elimiate duplicate
+      K_lcw           =  'w' ; // 119           !! added "lc" to elimiate duplicate
+      K_lcx           =  'x' ; // 120           !! added "lc" to elimiate duplicate
+      K_lcy           =  'y' ; // 121           !! added "lc" to elimiate duplicate
+      K_lcz           =  'z' ; // 122           !! added "lc" to elimiate duplicate    
     IUP_K_braceleft = 'K_braceleft';    
     IUP_K_bar = 'K_bar';    
     IUP_K_braceright = 'K_braceright';    
@@ -360,7 +354,7 @@ interface
     IUP_K_mZ = 'K_mZ';    
     IUP_K_BS = 'K_BS';    
     IUP_K_TAB = 'K_TAB';    
-    IUP_K_CR = 'K_CR';    
+    IUP_K_CR_ = 'K_CR';    // rename from IUP_K_CR to eliminate duplicate
     IUP_K_SP = 'K_SP';    
     IUP_K_ESC = 'K_ESC';    
     IUP_K_sCR = 'K_sCR';    
@@ -483,8 +477,8 @@ interface
     IUP_EXTENDED_CB = 'EXTENDED_CB';    
     IUP_SELECT_CB = 'SELECT_CB';    
     IUP_SWITCH_CB = 'SWITCH_CB';    
-    IUP_VERTICAL = 'VERTICAL';    
-    IUP_HORIZONTAL = 'HORIZONTAL';    
+    //IUP_VERTICAL = 'VERTICAL';    !! commented out to eliminate duplicate
+    //IUP_HORIZONTAL = 'HORIZONTAL';    !! commented out to eliminate duplicate
 
 
 
@@ -553,8 +547,8 @@ interface
 
 
     ICTL_DENSITY = 'DENSITY';    
-    ICTL_HORIZONTAL = 'HORIZONTAL';    
-    ICTL_VERTICAL = 'VERTICAL';    
+    //ICTL_HORIZONTAL = 'HORIZONTAL';    !! commented out to eliminate duplicate
+    //ICTL_VERTICAL = 'VERTICAL';    !! commented out to eliminate duplicate
     ICTL_CIRCULAR = 'CIRCULAR';    
     ICTL_UNIT = 'UNIT';    
 
@@ -567,7 +561,7 @@ interface
     IUP_DROP_CB = 'DROP_CB';    
     IUP_DROPSELECT_CB = 'DROPSELECT_CB';    
     IUP_DROPCHECK_CB = 'DROPCHECK_CB';    
-    IUP_SCROLL_CB = 'SCROLL_CB';    
+    //IUP_SCROLL_CB = 'SCROLL_CB';    !! commented out to eliminate duplicate
     IUP_VALUE_CB = 'VALUE_CB';    
     IUP_VALUE_EDIT_CB = 'VALUE_EDIT_CB';    
     IUP_FIELD_CB = 'FIELD_CB';    
@@ -588,10 +582,10 @@ interface
     IUP_LIN = 'LIN';    
     IUP_COL = 'COL';    
     IUP_LINCOL = 'LINCOL';    
-    IUP_CELL = 'CELL';    
+    //IUP_CELL = 'CELL';    !! commented out to eliminate duplicate
     IUP_EDIT_MODE = 'EDIT_MODE';    
     IUP_FOCUS_CELL = 'FOCUS_CELL';    
-    IUP_ORIGIN = 'ORIGIN';    
+    //IUP_ORIGIN = 'ORIGIN';    !! commented out to eliminate duplicate
     IUP_REDRAW = 'REDRAW';    
     IUP_PREVIOUSVALUE = 'PREVIOUSVALUE';    
     IUP_MOUSEMOVE_CB = 'MOUSEMOVE_CB';    
@@ -608,7 +602,7 @@ interface
     IUP_KIND = 'KIND';    
     IUP_PARENT = 'PARENT';    
     IUP_DEPTH = 'DEPTH';    
-    IUP_MARKED = 'MARKED';    
+    //IUP_MARKED = 'MARKED';    !! commented out to eliminate duplicate
     IUP_ADDEXPANDED = 'ADDEXPANDED';    
     IUP_CTRL = 'CTRL';    
     IUP_SHIFT = 'SHIFT';    
@@ -618,7 +612,7 @@ interface
     IUP_BRANCH = 'BRANCH';    
     IUP_SELECTED = 'SELECTED';    
     IUP_CHILDREN = 'CHILDREN';    
-    IUP_MARKED = 'MARKED';    
+    //IUP_MARKED = 'MARKED';    !! commented out to eliminate duplicate
     IUP_ROOT = 'ROOT';    
     IUP_LAST = 'LAST';    
     IUP_PGUP = 'PGUP';    
@@ -630,7 +624,7 @@ interface
     IUP_CLEARALL = 'CLEARALL';    
     IUP_MARKALL = 'MARKALL';    
     IUP_INVERTALL = 'INVERTALL';    
-    IUP_REDRAW = 'REDRAW';    
+    //IUP_REDRAW = 'REDRAW';    !! commented out to eliminate duplicate
     IUP_COLLAPSED = 'COLLAPSED';    
     IUP_EXPANDED = 'EXPANDED';    
     IUP_SELECTION_CB = 'SELECTION_CB';    
@@ -644,7 +638,7 @@ interface
     IUP_IMGEXPANDED = 'IMGEXPANDED';    
     IUP_IMGBLANK = 'IMGBLANK';    
     IUP_IMGPAPER = 'IMGPAPER';    
-{$endif}
+
 
 implementation
 

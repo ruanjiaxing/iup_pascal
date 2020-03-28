@@ -1,6 +1,11 @@
 
 unit iup;
+
+{$mode objfpc}
+
 interface
+
+uses iupdef, iupkey;
 
 {
   Automatically converted by H2Pas 1.0.0 from iup.h
@@ -17,42 +22,39 @@ interface
     External_library='iup'; {Setup as you need}
 
   { Pointers to basic pascal types, inserted by h2pas conversion program.}
-  Type
+{   Type
     PLongint  = ^Longint;
     PSmallInt = ^SmallInt;
     PByte     = ^Byte;
     PWord     = ^Word;
     PDWord    = ^DWord;
-    PDouble   = ^Double;
+    PDouble   = ^Double; }
+
+  Type
+  Ihandle = record
+  {undefined structure}
+  end;
 
   Type
   Pbyte  = ^byte;
   Pchar  = ^char;
   PIhandle  = ^Ihandle;
+  PPIhandle = ^PIhandle;
   Plongint  = ^longint;
-  PRecord_Input_Modes  = ^Record_Input_Modes;
-  PSCROLL_CB  = ^SCROLL_CB;
-  PSHOW_CB  = ^SHOW_CB;
 {$IFDEF FPC}
 {$PACKRECORDS C}
 {$ENDIF}
 
 
-
-{$ifndef __IUP_H }
-{$define __IUP_H}  
-{$include "iupkey.h"}
-{$include "iupdef.h"}
-
   const
-    IUP_NAME = 'IUP - Portable User Interface';    
-    IUP_DESCRIPTION = 'Multi-platform Toolkit for Building Graphical User Interfaces';    
-    IUP_COPYRIGHT = 'Copyright (C) 1994-2019 Tecgraf/PUC-Rio';    
+    IUP_NAME = 'IUP - Portable User Interface';
+    IUP_DESCRIPTION = 'Multi-platform Toolkit for Building Graphical User Interfaces';
+    IUP_COPYRIGHT = 'Copyright (C) 1994-2019 Tecgraf/PUC-Rio';
 
-    IUP_VERSION = '3.27';    
-    IUP_VERSION_NUMBER = 327000;    
+    IUP_VERSION = '3.27';
+    IUP_VERSION_NUMBER = 327000;
 
-    IUP_VERSION_DATE = '2019/04/30';    
+    IUP_VERSION_DATE = '2019/04/30';
 
   type
     Ihandle_ = Ihandle;
@@ -222,7 +224,7 @@ interface
 
   procedure IupSetDoubleId(ih:PIhandle; name:Pchar; id:longint; value:double);cdecl;external External_library name 'IupSetDoubleId';
 
-  procedure IupSetRGBId(ih:PIhandle; name:Pchar; id:longint; r:byte; g:byte; 
+  procedure IupSetRGBId(ih:PIhandle; name:Pchar; id:longint; r:byte; g:byte;
               b:byte);cdecl;external External_library name 'IupSetRGBId';
 
   function IupGetAttributeId(ih:PIhandle; name:Pchar; id:longint):Pchar;cdecl;external External_library name 'IupGetAttributeId';
@@ -233,14 +235,14 @@ interface
 
   function IupGetDoubleId(ih:PIhandle; name:Pchar; id:longint):double;cdecl;external External_library name 'IupGetDoubleId';
 
-  procedure IupGetRGBId(ih:PIhandle; name:Pchar; id:longint; r:Pbyte; g:Pbyte; 
+  procedure IupGetRGBId(ih:PIhandle; name:Pchar; id:longint; r:Pbyte; g:Pbyte;
               b:Pbyte);cdecl;external External_library name 'IupGetRGBId';
 
   procedure IupSetAttributeId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; value:Pchar);cdecl;external External_library name 'IupSetAttributeId2';
 
   procedure IupSetStrAttributeId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; value:Pchar);cdecl;external External_library name 'IupSetStrAttributeId2';
 
-  procedure IupSetStrfId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; format:Pchar; 
+  procedure IupSetStrfId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; format:Pchar;
               args:array of const);cdecl;external External_library name 'IupSetStrfId2';
 
   procedure IupSetStrfId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; format:Pchar);cdecl;external External_library name 'IupSetStrfId2';
@@ -251,7 +253,7 @@ interface
 
   procedure IupSetDoubleId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; value:double);cdecl;external External_library name 'IupSetDoubleId2';
 
-  procedure IupSetRGBId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; r:byte; 
+  procedure IupSetRGBId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; r:byte;
               g:byte; b:byte);cdecl;external External_library name 'IupSetRGBId2';
 
   function IupGetAttributeId2(ih:PIhandle; name:Pchar; lin:longint; col:longint):Pchar;cdecl;external External_library name 'IupGetAttributeId2';
@@ -262,7 +264,7 @@ interface
 
   function IupGetDoubleId2(ih:PIhandle; name:Pchar; lin:longint; col:longint):double;cdecl;external External_library name 'IupGetDoubleId2';
 
-  procedure IupGetRGBId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; r:Pbyte; 
+  procedure IupGetRGBId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; r:Pbyte;
               g:Pbyte; b:Pbyte);cdecl;external External_library name 'IupGetRGBId2';
 
   procedure IupSetGlobal(name:Pchar; value:Pchar);cdecl;external External_library name 'IupSetGlobal';
@@ -533,7 +535,7 @@ interface
 
   procedure IupStoreAttributeId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; value:Pchar);cdecl;external External_library name 'IupStoreAttributeId2';
 
-  procedure IupSetfAttributeId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; format:Pchar; 
+  procedure IupSetfAttributeId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; format:Pchar;
               args:array of const);cdecl;external External_library name 'IupSetfAttributeId2';
 
   procedure IupSetfAttributeId2(ih:PIhandle; name:Pchar; lin:longint; col:longint; format:Pchar);cdecl;external External_library name 'IupSetfAttributeId2';
@@ -579,7 +581,7 @@ interface
 
   function IupScanf(format:Pchar):longint;cdecl;external External_library name 'IupScanf';
 
-  function IupListDialog(_type:longint; title:Pchar; size:longint; list:PPchar; op:longint; 
+  function IupListDialog(_type:longint; title:Pchar; size:longint; list:PPchar; op:longint;
              max_col:longint; max_lin:longint; marks:Plongint):longint;cdecl;external External_library name 'IupListDialog';
 
   function IupGetText(title:Pchar; text:Pchar; maxsize:longint):longint;cdecl;external External_library name 'IupGetText';
@@ -595,7 +597,7 @@ interface
 
   function IupGetParam(title:Pchar; action:Iparamcb; user_data:pointer; format:Pchar):longint;cdecl;external External_library name 'IupGetParam';
 
-  function IupGetParamv(title:Pchar; action:Iparamcb; user_data:pointer; format:Pchar; param_count:longint; 
+  function IupGetParamv(title:Pchar; action:Iparamcb; user_data:pointer; format:Pchar; param_count:longint;
              param_extra:longint; param_data:Ppointer):longint;cdecl;external External_library name 'IupGetParamv';
 
   function IupParam(format:Pchar):PIhandle;cdecl;external External_library name 'IupParam';
@@ -616,35 +618,35 @@ interface
 
 
   const
-    IUP_ERROR = 1;    
-    IUP_NOERROR = 0;    
-    IUP_OPENED = -(1);    
-    IUP_INVALID = -(1);    
-    IUP_INVALID_ID = -(10);    
+    IUP_ERROR = 1;
+    IUP_NOERROR = 0;
+    IUP_OPENED = -(1);
+    IUP_INVALID = -(1);
+    IUP_INVALID_ID = -(10);
 
 
 
-    IUP_IGNORE = -(1);    
-    IUP_DEFAULT = -(2);    
-    IUP_CLOSE = -(3);    
-    IUP_CONTINUE = -(4);    
+    IUP_IGNORE = -(1);
+    IUP_DEFAULT = -(2);
+    IUP_CLOSE = -(3);
+    IUP_CONTINUE = -(4);
 
 
 
 
-    IUP_CENTER = $FFFF;    
+    IUP_CENTER = $FFFF;
 
-    IUP_LEFT = $FFFE;    
+    IUP_LEFT = $FFFE;
 
-    IUP_RIGHT = $FFFD;    
+    IUP_RIGHT = $FFFD;
 
-    IUP_MOUSEPOS = $FFFC;    
+    IUP_MOUSEPOS = $FFFC;
 
-    IUP_CURRENT = $FFFB;    
+    IUP_CURRENT = $FFFB;
 
-    IUP_CENTERPARENT = $FFFA;    
-    IUP_TOP = IUP_LEFT;    
-    IUP_BOTTOM = IUP_RIGHT;    
+    IUP_CENTERPARENT = $FFFA;
+    IUP_TOP = IUP_LEFT;
+    IUP_BOTTOM = IUP_RIGHT;
 
 
 
@@ -664,80 +666,87 @@ interface
 
 
 
+  const
+    IUP_BUTTON1 = '1';
+    IUP_BUTTON2 = '2';
+    IUP_BUTTON3 = '3';
+    IUP_BUTTON4 = '4';
+    IUP_BUTTON5 = '5';
+
+  function iup_isshift(_s : Pchar) : boolean;
+
+  function iup_iscontrol(_s : Pchar) : boolean;
+
+  function iup_isbutton1(_s : Pchar) : boolean;
+
+  function iup_isbutton2(_s : Pchar) : boolean;
+
+  function iup_isbutton3(_s : Pchar) : boolean;
+
+  function iup_isdouble(_s : Pchar) : boolean;
+
+  function iup_isalt(_s : Pchar) : boolean;
+
+  function iup_issys(_s : Pchar) : boolean;
+
+  function iup_isbutton4(_s : Pchar) : boolean;
+
+  function iup_isbutton5(_s : Pchar) : boolean;
+
+
+  function isshift(_s : Pchar) : boolean;
+
+  function iscontrol(_s : Pchar) : boolean;
+
+  function isbutton1(_s : Pchar) : boolean;
+
+  function isbutton2(_s : Pchar) : boolean;
+
+  function isbutton3(_s : Pchar) : boolean;
+
+  function isdouble(_s : Pchar) : boolean;
+
+  function isalt(_s : Pchar) : boolean;
+
+  function issys(_s : Pchar) : boolean;
+
+  function isbutton4(_s : Pchar) : boolean;
+
+  function isbutton5(_s : Pchar) : boolean;
 
   const
-    IUP_BUTTON1 = '1';    
-    IUP_BUTTON2 = '2';    
-    IUP_BUTTON3 = '3';    
-    IUP_BUTTON4 = '4';    
-    IUP_BUTTON5 = '5';    
 
-  function iup_isshift(_s : longint) : longint;  
+    IUP_MASK_FLOAT = '[+/-]?(/d+/.?/d*|/./d+)';
+    IUP_MASK_UFLOAT = '(/d+/.?/d*|/./d+)';
+    IUP_MASK_EFLOAT = '[+/-]?(/d+/.?/d*|/./d+)([eE][+/-]?/d+)?';
+    IUP_MASK_UEFLOAT = '(/d+/.?/d*|/./d+)([eE][+/-]?/d+)?';
+    IUP_MASK_FLOATCOMMA = '[+/-]?(/d+/,?/d*|/,/d+)';
+    IUP_MASK_UFLOATCOMMA = '(/d+/,?/d*|/,/d+)';
+    IUP_MASK_INT = '[+/-]?/d+';
+    IUP_MASK_UINT = '/d+';
 
-  function iup_iscontrol(_s : longint) : longint;  
-
-  function iup_isbutton1(_s : longint) : longint;  
-
-  function iup_isbutton2(_s : longint) : longint;  
-
-  function iup_isbutton3(_s : longint) : longint;  
-
-  function iup_isdouble(_s : longint) : longint;  
-
-  function iup_isalt(_s : longint) : longint;  
-
-  function iup_issys(_s : longint) : longint;  
-
-  function iup_isbutton4(_s : longint) : longint;  
-
-  function iup_isbutton5(_s : longint) : longint;  
-
-
-  const
-    isshift = iup_isshift;    
-    iscontrol = iup_iscontrol;    
-    isbutton1 = iup_isbutton1;    
-    isbutton2 = iup_isbutton2;    
-    isbutton3 = iup_isbutton3;    
-    isdouble = iup_isdouble;    
-    isalt = iup_isalt;    
-    issys = iup_issys;    
-    isbutton4 = iup_isbutton4;    
-    isbutton5 = iup_isbutton5;    
+    IUPMASK_FLOAT = IUP_MASK_FLOAT;
+    IUPMASK_UFLOAT = IUP_MASK_UFLOAT;
+    IUPMASK_EFLOAT = IUP_MASK_EFLOAT;
+    IUPMASK_INT = IUP_MASK_INT;
+    IUPMASK_UINT = IUP_MASK_UINT;
 
 
 
-    IUP_MASK_FLOAT = '[+/-]?(/d+/.?/d*|/./d+)';    
-    IUP_MASK_UFLOAT = '(/d+/.?/d*|/./d+)';    
-    IUP_MASK_EFLOAT = '[+/-]?(/d+/.?/d*|/./d+)([eE][+/-]?/d+)?';    
-    IUP_MASK_UEFLOAT = '(/d+/.?/d*|/./d+)([eE][+/-]?/d+)?';    
-    IUP_MASK_FLOATCOMMA = '[+/-]?(/d+/,?/d*|/,/d+)';    
-    IUP_MASK_UFLOATCOMMA = '(/d+/,?/d*|/,/d+)';    
-    IUP_MASK_INT = '[+/-]?/d+';    
-    IUP_MASK_UINT = '/d+';    
-
-    IUPMASK_FLOAT = IUP_MASK_FLOAT;    
-    IUPMASK_UFLOAT = IUP_MASK_UFLOAT;    
-    IUPMASK_EFLOAT = IUP_MASK_EFLOAT;    
-    IUPMASK_INT = IUP_MASK_INT;    
-    IUPMASK_UINT = IUP_MASK_UINT;    
+    IUP_GETPARAM_BUTTON1 = -(1);
+    IUP_GETPARAM_INIT = -(2);
+    IUP_GETPARAM_BUTTON2 = -(3);
+    IUP_GETPARAM_BUTTON3 = -(4);
+    IUP_GETPARAM_CLOSE = -(5);
+    IUP_GETPARAM_MAP = -(6);
+    IUP_GETPARAM_OK = IUP_GETPARAM_BUTTON1;
+    IUP_GETPARAM_CANCEL = IUP_GETPARAM_BUTTON2;
+    IUP_GETPARAM_HELP = IUP_GETPARAM_BUTTON3;
 
 
 
-    IUP_GETPARAM_BUTTON1 = -(1);    
-    IUP_GETPARAM_INIT = -(2);    
-    IUP_GETPARAM_BUTTON2 = -(3);    
-    IUP_GETPARAM_BUTTON3 = -(4);    
-    IUP_GETPARAM_CLOSE = -(5);    
-    IUP_GETPARAM_MAP = -(6);    
-    IUP_GETPARAM_OK = IUP_GETPARAM_BUTTON1;    
-    IUP_GETPARAM_CANCEL = IUP_GETPARAM_BUTTON2;    
-    IUP_GETPARAM_HELP = IUP_GETPARAM_BUTTON3;    
-
-
-
-    IUP_PRIMARY = -(1);    
-    IUP_SECONDARY = -(2);    
+    IUP_PRIMARY = -(1);
+    IUP_SECONDARY = -(2);
 
 
 
@@ -748,68 +757,106 @@ interface
 
 
 
-
-
-{$if defined (__WATCOMC__)}
-
-
-  const
-    main = IupMain;    
-{$endif}
-
-{$endif}
-
 implementation
 
-  function iup_isshift(_s : longint) : longint;
+  function iup_isshift(_s : Pchar) : boolean;
   begin
-    iup_isshift:=(_s[0])='S';
+    iup_isshift:= (_s[0] = 'S');
   end;
 
-  function iup_iscontrol(_s : longint) : longint;
+  function iup_iscontrol(_s : Pchar) : boolean;
   begin
-    iup_iscontrol:=(_s[1])='C';
+    iup_iscontrol:= (_s[1] = 'C');
   end;
 
-  function iup_isbutton1(_s : longint) : longint;
+  function iup_isbutton1(_s : Pchar) : boolean;
   begin
-    iup_isbutton1:=(_s[2])='1';
+    iup_isbutton1:= (_s[2] = '1');
   end;
 
-  function iup_isbutton2(_s : longint) : longint;
+  function iup_isbutton2(_s : Pchar) : boolean;
   begin
-    iup_isbutton2:=(_s[3])='2';
+    iup_isbutton2:= (_s[3] = '2');
   end;
 
-  function iup_isbutton3(_s : longint) : longint;
+  function iup_isbutton3(_s : Pchar) : boolean;
   begin
-    iup_isbutton3:=(_s[4])='3';
+    iup_isbutton3:= (_s[4] = '3');
   end;
 
-  function iup_isdouble(_s : longint) : longint;
+  function iup_isdouble(_s : Pchar) : boolean;
   begin
-    iup_isdouble:=(_s[5])='D';
+    iup_isdouble:= (_s[5] = 'D');
   end;
 
-  function iup_isalt(_s : longint) : longint;
+  function iup_isalt(_s : Pchar) : boolean;
   begin
-    iup_isalt:=(_s[6])='A';
+    iup_isalt:= (_s[6] = 'A');
   end;
 
-  function iup_issys(_s : longint) : longint;
+  function iup_issys(_s : Pchar) : boolean;
   begin
-    iup_issys:=(_s[7])='Y';
+    iup_issys:= (_s[7] = 'Y');
   end;
 
-  function iup_isbutton4(_s : longint) : longint;
+  function iup_isbutton4(_s : Pchar) : boolean;
   begin
-    iup_isbutton4:=(_s[8])='4';
+    iup_isbutton4:= (_s[8] = '4');
   end;
 
-  function iup_isbutton5(_s : longint) : longint;
+  function iup_isbutton5(_s : Pchar) : boolean;
   begin
-    iup_isbutton5:=(_s[9])='5';
+    iup_isbutton5:= (_s[9] = '5');
   end;
 
+  function isshift(_s : Pchar) : boolean;
+  begin
+    result:= iup_isshift(_s);
+  end;
+
+  function iscontrol(_s : Pchar) : boolean;
+  begin
+    result:= iup_iscontrol(_s);
+  end;
+
+  function isbutton1(_s : Pchar) : boolean;
+  begin
+    result:= iup_isbutton1(_s);
+  end;
+
+  function isbutton2(_s : Pchar) : boolean;
+  begin
+    result:= iup_isbutton2(_s);
+  end;
+
+  function isbutton3(_s : Pchar) : boolean;
+  begin
+    result:= iup_isbutton3(_s);
+  end;
+
+  function isdouble(_s : Pchar) : boolean;
+  begin
+    result:= iup_isdouble(_s);
+  end;
+
+  function isalt(_s : Pchar) : boolean;
+  begin
+    result:= iup_isalt(_s);
+  end;
+
+  function issys(_s : Pchar) : boolean;
+  begin
+    result:= iup_issys(_s);
+  end;
+
+  function isbutton4(_s : Pchar) : boolean;
+  begin
+    result:= iup_isbutton4(_s);
+  end;
+
+  function isbutton5(_s : Pchar) : boolean;
+  begin
+    result:= iup_isbutton5(_s);
+  end;
 
 end.

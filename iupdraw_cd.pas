@@ -1,5 +1,8 @@
 
 unit iupdraw_cd;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -32,15 +35,9 @@ interface
 {$ENDIF}
 
 
-
-{$ifndef __CD_IUPDRAW_H}
-{$define __CD_IUPDRAW_H}  
-
   function cdContextIupDraw:PcdContext;cdecl;external External_library name 'cdContextIupDraw';
 
   function CD_IUPDRAW : PcdContext;
-
-{$endif}
 
 
 implementation
@@ -49,6 +46,5 @@ implementation
     begin
       CD_IUPDRAW:=cdContextIupDraw;
     end;
-
 
 end.

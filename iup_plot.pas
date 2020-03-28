@@ -1,5 +1,8 @@
 
 unit iup_plot;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -34,11 +37,6 @@ interface
 {$IFDEF FPC}
 {$PACKRECORDS C}
 {$ENDIF}
-
-
-
-{$ifndef __IUP_PLOT_H }
-{$define __IUP_PLOT_H}  
 
 
   procedure IupPlotOpen;cdecl;external External_library name 'IupPlotOpen';
@@ -114,8 +112,6 @@ interface
 
   procedure IupPlotPaintTo(ih:PIhandle; cnv:P_cdCanvas);cdecl;external External_library name 'IupPlotPaintTo';
 
-
-{$endif}
 
 implementation
 

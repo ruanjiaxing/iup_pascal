@@ -1,5 +1,8 @@
 
 unit iupweb;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -32,15 +35,10 @@ interface
 {$ENDIF}
 
 
-
-{$ifndef __IUPWEB_H }
-{$define __IUPWEB_H}  
-
   function IupWebBrowserOpen:longint;cdecl;external External_library name 'IupWebBrowserOpen';
 
   function IupWebBrowser:PIhandle;cdecl;external External_library name 'IupWebBrowser';
 
-{$endif}
 
 implementation
 

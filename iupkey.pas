@@ -1,5 +1,7 @@
 unit iupkey;
 
+{$mode objfpc}
+
 interface
      
      
@@ -109,9 +111,6 @@ interface
      
     function iup_isprint(_c : DWORD)
            : boolean32; inline;
-    begin
-      result := (_c > 31) and (_c < 127);
-    end;
      
      
     // also define the escape sequences that have keys associated
@@ -147,14 +146,8 @@ interface
      
     function iup_isXkey(_c : DWORD)
            : boolean32; inline;
-    begin
-      result := (_c > 128);
-    end;
      
     function isxkey(_c : DWORD) : boolean32; inline;
-    begin
-      result := iup_isXkey(_c);
-    end;
      
      
     // These use the same definition as X11 and GDK.
@@ -222,36 +215,24 @@ interface
      
     function iup_isShiftXkey(_c : DWORD)
            : boolean32; inline;
-    begin
-      result := _c and DWORD($10000000) > 0;
-    end;
      
      
     // #define iup_isCtrlXkey(_c)  ((_c) & 0x20000000)
      
     function iup_isCtrlXkey(_c : DWORD)
            : boolean32; inline;
-    begin
-      result := _c and DWORD($20000000) > 0;
-    end;
      
      
     // #define iup_isAltXkey(_c)   ((_c) & 0x40000000)
      
     function iup_isAltXkey(_c : DWORD)
            : boolean32; inline;
-    begin
-      result := _c and DWORD($40000000) > 0;
-    end;
      
      
     // #define iup_isSysXkey(_c)   ((_c) & 0x80000000)
      
     function iup_isSysXkey(_c : DWORD)
            : boolean32; inline;
-    begin
-      result := _c and DWORD($80000000) > 0;
-    end;
      
      
     // #define iup_XkeyBase(_c)  ((_c) & 0x0FFFFFFF)
@@ -551,4 +532,51 @@ interface
      
 implementation
 
+    function iup_isprint(_c : DWORD)
+           : boolean32; inline;
+    begin
+      result := (_c > 31) and (_c < 127);
+    end;
+    function iup_isXkey(_c : DWORD)
+           : boolean32; inline;
+    begin
+      result := (_c > 128);
+    end;
+     
+    function isxkey(_c : DWORD) : boolean32; inline;
+    begin
+      result := iup_isXkey(_c);
+    end;
+    function iup_isShiftXkey(_c : DWORD)
+           : boolean32; inline;
+    begin
+      result := _c and DWORD($10000000) > 0;
+    end;
+     
+     
+    // #define iup_isCtrlXkey(_c)  ((_c) & 0x20000000)
+     
+    function iup_isCtrlXkey(_c : DWORD)
+           : boolean32; inline;
+    begin
+      result := _c and DWORD($20000000) > 0;
+    end;
+     
+     
+    // #define iup_isAltXkey(_c)   ((_c) & 0x40000000)
+     
+    function iup_isAltXkey(_c : DWORD)
+           : boolean32; inline;
+    begin
+      result := _c and DWORD($40000000) > 0;
+    end;
+     
+     
+    // #define iup_isSysXkey(_c)   ((_c) & 0x80000000)
+     
+    function iup_isSysXkey(_c : DWORD)
+           : boolean32; inline;
+    begin
+      result := _c and DWORD($80000000) > 0;
+    end;
 end.

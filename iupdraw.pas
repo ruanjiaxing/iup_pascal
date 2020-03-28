@@ -1,5 +1,8 @@
 
 unit iupdraw;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -32,11 +35,6 @@ interface
 {$IFDEF FPC}
 {$PACKRECORDS C}
 {$ENDIF}
-
-
-
-{$ifndef __IUPDRAW_H }
-{$define __IUPDRAW_H}  
 
 
   procedure IupDrawBegin(ih:PIhandle);cdecl;external External_library name 'IupDrawBegin';
@@ -79,7 +77,6 @@ interface
 
   procedure IupDrawGetImageInfo(name:Pchar; w:Plongint; h:Plongint; bpp:Plongint);cdecl;external External_library name 'IupDrawGetImageInfo';
 
-{$endif}
 
 implementation
 

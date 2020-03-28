@@ -1,5 +1,8 @@
 
 unit iup_scintilla;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -27,14 +30,12 @@ interface
 
   Type
   PIhandle  = ^Ihandle;
+  sptr_t    = ^Integer;
+  uptr_t    = ^Cardinal;
 {$IFDEF FPC}
 {$PACKRECORDS C}
 {$ENDIF}
 
-
-
-{$ifndef __IUP_SCINTILLA_H }
-{$define __IUP_SCINTILLA_H}  
 
   procedure IupScintillaOpen;cdecl;external External_library name 'IupScintillaOpen';
 
@@ -42,11 +43,9 @@ interface
 
   function IupScintillaDlg:PIhandle;cdecl;external External_library name 'IupScintillaDlg';
 
-{$ifdef SCINTILLA_H}
+
   function IupScintillaSendMessage(ih:PIhandle; iMessage:dword; wParam:uptr_t; lParam:sptr_t):sptr_t;cdecl;external External_library name 'IupScintillaSendMessage';
 
-{$endif}
-{$endif}
 
 implementation
 

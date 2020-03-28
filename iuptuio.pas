@@ -1,5 +1,8 @@
 
 unit iuptuio;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -30,17 +33,12 @@ interface
 {$IFDEF FPC}
 {$PACKRECORDS C}
 {$ENDIF}
-
-
-
-{$ifndef __IUPTUIO_H}
-{$define __IUPTUIO_H}  
+ 
 
   function IupTuioOpen:longint;cdecl;external External_library name 'IupTuioOpen';
 
   function IupTuioClient(port:longint):PIhandle;cdecl;external External_library name 'IupTuioClient';
 
-{$endif}
 
 implementation
 

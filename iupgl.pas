@@ -1,5 +1,8 @@
 
 unit iupgl;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -32,10 +35,6 @@ interface
 {$PACKRECORDS C}
 {$ENDIF}
 
-
-
-{$ifndef __IUPGL_H }
-{$define __IUPGL_H}  
 
 {$ifndef IUP_BUFFER    /* IUP_SINGLE (defaut) or IUP_DOUBLE */}
 
@@ -152,7 +151,6 @@ interface
 
   procedure IupGLWait(gl:longint);cdecl;external External_library name 'IupGLWait';
 
-{$endif}
 
 implementation
 

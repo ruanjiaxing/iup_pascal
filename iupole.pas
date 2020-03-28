@@ -1,5 +1,8 @@
 
 unit iupole;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -33,15 +36,10 @@ interface
 {$ENDIF}
 
 
-
-{$ifndef __IUPOLE_H }
-{$define __IUPOLE_H}  
-
   function IupOleControl(progid:Pchar):PIhandle;cdecl;external External_library name 'IupOleControl';
 
   function IupOleControlOpen:longint;cdecl;external External_library name 'IupOleControlOpen';
 
-{$endif}
 
 implementation
 

@@ -1,5 +1,8 @@
 
 unit iupim;
+
+{$mode objfpc}
+
 interface
 
 {
@@ -34,10 +37,6 @@ interface
 {$ENDIF}
 
 
-
-{$ifndef __IUPIM_H}
-{$define __IUPIM_H}  
-
   function IupLoadImage(file_name:Pchar):PIhandle;cdecl;external External_library name 'IupLoadImage';
 
   function IupSaveImage(ih:PIhandle; file_name:Pchar; format:Pchar):longint;cdecl;external External_library name 'IupSaveImage';
@@ -46,7 +45,7 @@ interface
 
   function IupLoadAnimationFrames(file_name_list:PPchar; file_count:longint):PIhandle;cdecl;external External_library name 'IupLoadAnimationFrames';
 
-{$ifdef __IM_IMAGE_H}
+
   function IupGetNativeHandleImage(handle:pointer):PimImage;cdecl;external External_library name 'IupGetNativeHandleImage';
 
   function IupGetImageNativeHandle(image:PimImage):pointer;cdecl;external External_library name 'IupGetImageNativeHandle';
@@ -55,8 +54,6 @@ interface
 
   function IupImageToImImage(iup_image:PIhandle):PimImage;cdecl;external External_library name 'IupImageToImImage';
 
-{$endif}
-{$endif}
 
 implementation
 
